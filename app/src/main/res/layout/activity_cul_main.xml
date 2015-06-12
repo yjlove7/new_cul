@@ -6,14 +6,17 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3">
-        <TextView
-            android:id="@+id/text_result"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="right"
-            android:textSize="30dip" >
-        </TextView>
+        android:layout_weight="1.41"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text1"
+            android:layout_weight="1"
+            android:hint="연산입력"
+            android:focusableInTouchMode="true" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -39,7 +42,7 @@
             android:text="="
             android:layout_weight="1"/>
         <Button
-            android:id="@+id/button_plus"
+            android:id="@+id/button_add"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="+"
@@ -69,11 +72,12 @@
             android:text="9"
             android:layout_weight="1" />
         <Button
-            android:id="@+id/button_minus"
+            android:id="@+id/button_sub"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="-"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:clickable="true" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -99,12 +103,13 @@
             android:text="6"
             android:layout_weight="1" />
         <Button
-            android:id="@+id/button_multi"
+            android:id="@+id/button_mul"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="*"
             android:layout_weight="1" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -135,15 +140,16 @@
             android:layout_height="fill_parent"
             android:text="/"
             android:layout_weight="1"
-            android:shadowColor="#ffcc7167"
-            android:singleLine="true" />
+            android:singleLine="false" />
+
     </LinearLayout>
 
     <Button
-        android:layout_width="288dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="0"
         android:id="@+id/button_0"
-        android:layout_weight="0.43"
-        android:singleLine="true" />
+        android:singleLine="false"
+        android:layout_weight="0.59" />
+
 </LinearLayout>

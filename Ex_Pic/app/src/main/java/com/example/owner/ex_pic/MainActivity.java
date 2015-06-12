@@ -1,22 +1,25 @@
 package com.example.owner.ex_pic;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
     TextView text1,text2;
-    CheckBox chkagree;
-    RadioGroup rgroup1;
+    CheckBox chkAgree;
+    RadioGroup rGroup1;
     RadioButton co1,co2,co3;
     Button b_ok;
     ImageView img_co;
@@ -30,8 +33,9 @@ public class MainActivity extends ActionBarActivity {
         setTitle("커피 사진 보기!_!");
 
         text1=(TextView)findViewById(R.id.text1);
-        chkagree= (CheckBox)findViewById(R.id.checkbox);
-        rgroup1=(RadioGroup)findViewById(R.id.rgroup1);
+        chkAgree= (CheckBox)findViewById(R.id.checkbox);
+        text2=(TextView)findViewById(R.id.text2);
+        rGroup1=(RadioGroup)findViewById(R.id.rgroup1);
         co1 =(RadioButton)findViewById(R.id.co1);
         co2 =(RadioButton)findViewById(R.id.co2);
         co3 =(RadioButton)findViewById(R.id.co3);
@@ -39,7 +43,49 @@ public class MainActivity extends ActionBarActivity {
         img_co=(ImageView)findViewById(R.id.img_co);
 
 
-        chkagree.setOnCheckedChangeListener(new );
+        chkAgree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+                if(chkAgree.isChecked()==true){
+                    text2.setVisibility(View.VISIBLE);
+                    rGroup1.setVisibility(View.VISIBLE);
+                    b_ok.setVisibility(View.VISIBLE);
+                    img_co.setVisibility(View.VISIBLE);
+                }else{
+                    text2.setVisibility(View.VISIBLE);
+                    rGroup1.setVisibility(View.VISIBLE);
+                    b_ok.setVisibility(View.VISIBLE);
+                    img_co.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        b_ok.setOnClickListener(new View.OnClickListener(){
+            public void OnClick(View arg0){
+                switch (rGroup1.getCheckedRadioButtonId()){
+                    case R.id.co1:
+                        img_co.setImageResource(R.drawable.co1);
+                        break;
+
+                    case R.id.co2:
+                        img_co.setImageResource(R.drawable.co2);
+                        break;
+
+                    case R.id.co3:
+                        img_co.setImageResource(R.drawable.co3);
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(),"커피커피선택 먼저해요!",Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
 
     }
 

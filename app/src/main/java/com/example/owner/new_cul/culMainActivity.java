@@ -1,251 +1,319 @@
 package com.example.owner.new_cul;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
-public class culMainActivity extends Activity implements OnClickListener {
-
-    private Button b0;
-    private Button b1;
-    private Button b2;
-    private Button b3;
-    private Button b4;
-    private Button b5;
-    private Button b6;
-    private Button b7;
-    private Button b8;
-    private Button b9;
-    private Button b_claer;
-    private Button b_back;
-    private Button b_devide;
-    private Button b_plus;
-    private Button b_minus;
-    private Button b_multi;
-    private Button b_equal;
-    private ArrayList<String> operatorList;
-    private boolean isPreOperator;
+import android.widget.EditText;
 
 
-    private TextView result;
+public class culMainActivity extends ActionBarActivity {
+
+    Button button_0,button_1,button_2,button_3,button_4,button_5,button_6,button_7,
+            button_8,button_9,button_sub,button_add,button_mul,button_divide, button_clear,button_equal,button_back;
+    EditText text1;
+    String string;
+    String temp;
+    int length;
+    int yunsan;
+    float sum=0;
+    Boolean on=false;
+    Boolean clean=false;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTitle("d");
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cul_main );
+        setContentView(R.layout.activity_cul_main);
+        button_0 = (Button) findViewById(R.id.button_0);
+        button_1 = (Button) findViewById(R.id.button_1);
+        button_2 = (Button) findViewById(R.id.button_2);
+        button_3 = (Button) findViewById(R.id.button_3);
+        button_4 = (Button) findViewById(R.id.button_4);
+        button_5 = (Button) findViewById(R.id.button_5);
+        button_6 = (Button) findViewById(R.id.button_6);
+        button_7 = (Button) findViewById(R.id.button_7);
+        button_8 = (Button) findViewById(R.id.button_8);
+        button_9 = (Button) findViewById(R.id.button_9);
+        button_sub = (Button) findViewById(R.id.button_sub);
+        button_add = (Button) findViewById(R.id.button_add);
+        button_mul = (Button) findViewById(R.id.button_mul);
+        button_divide = (Button) findViewById(R.id.button_devide);
+        button_clear = (Button) findViewById(R.id.button_clear);
+        button_equal = (Button) findViewById(R.id.button_equal);
+        button_back = (Button) findViewById(R.id.button_back);
 
-        b0 = (Button) findViewById( R.id.button_0 );
-        b0.setOnClickListener(this);
-        b1 = (Button) findViewById( R.id.button_1 );
-        b1.setOnClickListener(this);
-        b2 = (Button) findViewById( R.id.button_2 );
-        b2.setOnClickListener(this);
-        b3 = (Button) findViewById( R.id.button_3 );
-        b3.setOnClickListener(this);
-        b4 = (Button) findViewById( R.id.button_4 );
-        b4.setOnClickListener(this);
-        b5 = (Button) findViewById( R.id.button_5 );
-        b5.setOnClickListener(this);
-        b6 = (Button) findViewById( R.id.button_6 );
-        b6.setOnClickListener(this);
-        b7 = (Button) findViewById( R.id.button_7 );
-        b7.setOnClickListener(this);
-        b8 = (Button) findViewById( R.id.button_8 );
-        b8.setOnClickListener(this);
-        b9 = (Button) findViewById( R.id.button_9 );
-        b9.setOnClickListener(this);
-        b_claer = (Button) findViewById( R.id.button_clear );
-        b_claer.setOnClickListener(this);
-        b_back = (Button) findViewById( R.id.button_back );
-        b_back.setOnClickListener(this);
-        b_devide = (Button) findViewById( R.id.button_devide );
-        b_devide.setOnClickListener(this);
-        b_plus = (Button) findViewById( R.id.button_plus );
-        b_plus.setOnClickListener(this);
-        b_minus = (Button) findViewById( R.id.button_minus );
-        b_minus.setOnClickListener(this);
-        b_multi = (Button) findViewById( R.id.button_multi );
-        b_multi.setOnClickListener(this);
-        b_equal = (Button) findViewById( R.id.button_equal );
-        b_equal.setOnClickListener(this);
-        result = (TextView) findViewById( R.id.text_result );
+        button_1.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("1");
+            }
+        });
 
-        operatorList = new ArrayList<String>();
-        isPreOperator = false;
+        button_2.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("2");
+            }
+        });
+
+        button_3.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("3");
+            }
+        });
+
+        button_4.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("4");
+            }
+        });
+
+        button_5.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("5");
+            }
+        });
+
+        button_6.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("6");
+            }
+        });
+
+        button_7.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("7");
+            }
+        });
+
+        button_8.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("8");
+            }
+        });
+
+        button_9.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function("9");
+            }
+        });
+
+        button_0.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                if(on!=true) function("0");
+            }
+        });
+
+        button_add.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function2("+");
+            }
+        });
+
+        button_sub.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function2("-");
+            }
+        });
+
+        button_mul.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function2("×");
+            }
+        });
+
+        button_divide.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                function2("÷");
+            }
+        });
+
+        button_equal.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View arg0)
+            {
+                string=text1.getText().toString();
+                length=string.length();
+                String last=string.substring(length-1,length);
+                int j=0;
+                int k=0;
+                int point;
+                int pointTemp;
+                Boolean first = true;
+
+
+
+                for(int i=0;i<length;i++)
+                {
+                    point=string.codePointAt(i);
+                    if(point==215||point==247||point==43||point==45)
+                    {
+                        if(first==true)
+                        {
+                            sum=sum+Integer.parseInt(string.substring(0,i));
+                            first=false;
+                        }
+
+                        if(first==false)
+                        {
+                            if(point==43)
+                            {
+                                for(j=i+1;j<length;j++)
+                                {
+                                    pointTemp=string.codePointAt(j);
+                                    if(pointTemp==215||pointTemp==247||pointTemp==43||pointTemp==45) break;
+                                }
+
+                                sum=sum+Integer.parseInt(string.substring(i+1,j));
+                            }
+
+                            else if(point==45)
+                            {
+                                for(j=i+1;j<length;j++)
+                                {
+                                    pointTemp=string.codePointAt(j);
+                                    if(pointTemp==215||pointTemp==247||pointTemp==43||pointTemp==45) break;
+                                }
+
+                                sum=sum-Integer.parseInt(string.substring(i+1,j));
+                            }
+
+                            else if(point==215)
+                            {
+                                for(j=i+1;j<length;j++)
+                                {
+                                    pointTemp=string.codePointAt(j);
+                                    if(pointTemp==215||pointTemp==247||pointTemp==43||pointTemp==45) break;
+                                }
+
+                                sum=sum*Integer.parseInt(string.substring(i+1,j));
+                            }
+
+                            else if(point==247)
+                            {
+                                for(j=i+1;j<length;j++)
+                                {
+                                    pointTemp=string.codePointAt(j);
+                                    if(pointTemp==215||pointTemp==247||pointTemp==43||pointTemp==45) break;
+                                }
+
+                                sum=sum/Integer.parseInt(string.substring(i+1,j));
+                            }
+                        }
+
+                    }
+
+
+                }
+//				곱하기=215 나누기=247 더하기 =43 빼기=45
+
+
+                text1.setText(""+sum);
+                sum=0;
+                clean=true;
+            }
+        });
+
+        button_back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                if(clean==true){
+                    text1.setText("");
+                    clean=false;
+                }
+                else if(!text1.getText().toString().equals("")){
+                    text1.setText(text1.getText().toString().substring(0, text1.getText().toString().length()-1));
+                    if(on==true) on=false;
+                }
+            }
+        });
+    }
+
+
+    void function(String a){
+        string=text1.getText().toString();
+        length=text1.getText().toString().length();
+
+
+
+        if(string.equals("")||string.equals("0")){
+            text1.setText(""+a);
+            on=false;
+        }
+        else if(clean==true){
+            text1.setText(""+a);
+            clean=false;
+        }
+        else{
+            text1.setText(string+a);
+            on=false;
+        }
+    }
+
+    void function2(String a){
+        string=text1.getText().toString();
+        if(clean==true)
+        {
+            text1.setText("");
+            clean=false;
+
+        }
+        else if(on==false){
+            text1.setText(string+a);
+            on=true;
+        }
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_cul_main, menu);
+        return true;
     }
 
     @Override
-    public void onClick(View v) {
-        if( v.equals( b0 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("0");
-            }else {
-                result.setText( result.getText()+"0");
-            }
-        }else if( v.equals( b1 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("1");
-            }else {
-                result.setText( result.getText()+"1");
-            }
-        }
-        else if( v.equals( b2 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("2");
-            }else {
-                result.setText( result.getText()+"2");
-            }
-        }else if( v.equals( b3 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("3");
-            }else {
-                result.setText( result.getText()+"3");
-            }
-        }else if( v.equals( b4 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("4");
-            }else {
-                result.setText( result.getText()+"4");
-            }
-        }else if( v.equals( b5 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("5");
-            }else {
-                result.setText( result.getText()+"5");
-            }
-        }else if( v.equals( b6 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("6");
-            }else {
-                result.setText( result.getText()+"6");
-            }
-        }else if( v.equals( b7 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("7");
-            }else {
-                result.setText( result.getText()+"7");
-            }
-        }else if( v.equals( b8 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("8");
-            }else {
-                result.setText( result.getText()+"8");
-            }
-        }else if( v.equals( b9 )){
-            isPreOperator = false;
-            if( result.getText().length() == 1 && "0".equals(result.getText())){
-                result.setText("9");
-            }else {
-                result.setText( result.getText()+"9");
-            }
-        }else if( v.equals( b_claer )){
-            isPreOperator = false;
-            result.setText( "0");
-            operatorList.clear();
-        }else if( v.equals( b_back )){
-            if( result.getText().length() != 0 ) {
-                String str = result.getText().subSequence( result.getText().length()-1, result.getText().length() ).toString();
-                if( "+".equals(str) || "-".equals(str) || "*".equals(str) || "/".equals(str)){
-                    operatorList.remove(operatorList.size());
-                }
-                result.setText( result.getText().subSequence( 0 , result.getText().length()-1));
-            }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-        }else if( v.equals( b_devide )){
-            if( isPreOperator == true ) {
-                return;
-            }
-            result.setText( result.getText()+"/");
-            isPreOperator = true;
-            operatorList.add("/");
-        }else if( v.equals( b_plus )){
-            if( isPreOperator == true ) {
-                return;
-            }
-            isPreOperator = true;
-            result.setText( result.getText()+"+");
-            operatorList.add("+");
-
-        }else if( v.equals( b_minus )){
-            if( isPreOperator == true ) {
-                return;
-            }
-            isPreOperator = true;
-            result.setText( result.getText()+"-");
-            operatorList.add("-");
-        }else if( v.equals( b_multi )){
-            if( isPreOperator == true ) {
-                return;
-            }
-            isPreOperator = true;
-            result.setText( result.getText()+"X");
-            operatorList.add("*");
-        }else if( v.equals( b_equal )){
-            if( isPreOperator == true ) {
-                result.setText("0");
-                operatorList.clear();
-                isPreOperator = false;
-                return;
-            }
-            result.setText( calc(result.getText().toString()) );
-        }
-    }
-    private String calc(String exp) {
-
-
-        ArrayList<Double> numberList = new ArrayList<Double>();
-        StringTokenizer st = new StringTokenizer(exp,"X/+-");
-
-
-        while( st.hasMoreTokens() ) {
-            double number = Double.parseDouble(st.nextToken());
-            numberList.add( number );
-            Log.d("aaa", String.valueOf(number) );
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
         }
 
-        double result = numberList.get(0);
-        Log.d("aaa", String.valueOf(result) );
-        for( int i = 0 ; i < operatorList.size() ; i++ ) {
-            String operator = operatorList.get(i);
-
-            if( "*".equals(operator)){
-                Log.d("aaa", "*");
-                Log.d("aaa", String.valueOf( numberList.get(i+1)));
-                result = ( result * numberList.get(i+1));
-            }else if( "/".equals(operator)){
-                Log.d("aaa", "/");
-                Log.d("aaa", String.valueOf( numberList.get(i+1)));
-                result = ( result / numberList.get(i+1));
-            }else if( "+".equals(operator)){
-                Log.d("aaa", "+");
-                Log.d("aaa", String.valueOf( numberList.get(i+1)));
-                result = ( result + numberList.get(i+1));
-            }else if( "-".equals(operator)){
-                Log.d("aaa", "-");
-                Log.d("aaa", String.valueOf( numberList.get(i+1)));
-                result = ( result - numberList.get(i+1));
-            }
-        }
-        operatorList.clear();
-        numberList.clear();
-
-        // �����ð��� ���
-        return String.valueOf(result);
+        return super.onOptionsItemSelected(item);
     }
 }

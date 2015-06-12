@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:id="@+id/main">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택해보아요 :)"
+        android:id="@+id/text1"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="20dp"
+        android:textIsSelectable="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시작해요 !"
+        android:id="@+id/chkagree"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:checked="false"
+        android:textSize="15dp"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="좋아하는 커피는?"
+        android:id="@+id/text2"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="20dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:id="@+id/rgroup1"></RadioGroup>
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="에스프레소"
+        android:id="@+id/co1"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:checked="false"
+        android:textSize="15dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아메리카노"
+        android:id="@+id/co2"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="15dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="카페라떼"
+        android:id="@+id/co3"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="15dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택완료"
+        android:id="@+id/b_ok"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_co"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+       />
+
+</LinearLayout>
+
